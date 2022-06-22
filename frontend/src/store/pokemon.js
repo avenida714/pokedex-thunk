@@ -24,12 +24,15 @@ const addOnePokemon = pokemon => ({
 export const createPokemon = (info) => async dispatch => {
   const response = await fetch(`/api/pokemon`, {
     method: "post",
-    header: {"Content-Type": "application/json"},
+    headers: {"Content-Type": "application/json"},
     body: JSON.stringify(info)
-  })
+  })  //headerSSSSSSSSSSS not header
 
- if(response.ok) {
+
+  if(response.ok) {
+  //  console.log('THUNK HEREEEEEEEEEEEEEEE ---------> ', response)
   const newPokemon = await response.json()
+  console.log('NEW POKEMON HEREEEEEEEEEEEEEEE', newPokemon)
   dispatch(addOnePokemon(newPokemon))
  }
 
