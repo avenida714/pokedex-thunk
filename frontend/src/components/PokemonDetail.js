@@ -14,10 +14,10 @@ const PokemonDetail = () => {
   const [editItemId, setEditItemId] = useState(null);
 
   useEffect(() => {
+    dispatch(getOnePokemon(pokemonId))
     setShowEditPokeForm(false);
     setEditItemId(null);
-    dispatch(getOnePokemon())
-  }, [pokemonId]);
+  }, [dispatch, pokemonId]);
 
   if (!pokemon || !pokemon.moves) {
     return null;
